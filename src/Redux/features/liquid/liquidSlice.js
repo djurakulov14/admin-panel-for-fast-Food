@@ -17,7 +17,7 @@ export const liquidsSlice = createSlice({
            })
            .addCase(getLiquids.fulfilled, (state, action) => {
                state.status = "already got your liquids"
-               state.burgers = action.payload
+               state.liquids = action.payload
            })
            .addCase(getLiquids.rejected, (state, action) => {
                state.status = "budesh golodaty"
