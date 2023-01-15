@@ -6,20 +6,27 @@ import { getSalad } from "./Redux/features/salads/saladsThunk";
 import Layout from "./Layout/Layout";
 import Home from "./Pages/Home";
 import { Route, Routes } from "react-router-dom";
+import { getDesserts } from "./Redux/features/desserts/dessertThunk";
+import { getSouses } from "./Redux/features/souses/sousesThunk";
+import { getPizzas } from "./Redux/features/pizzas/pizzaThunk";
 
 
 function App() {
 
-    const {burgers, status} = useSelector(state => state.burgers)
-	const {salads} = useSelector(state => state.salads)
+    const {burgers, statusOfBurger} = useSelector(state => state.burgers)
+	const {salads, statusOfSalad} = useSelector(state => state.salads)
+	const {desserts, statusOfDessert} = useSelector(state => state.desserts)
+	const {souses, statusOfSouse} = useSelector(state => state.souses)
+	const {pizzas, statusOfPizza} = useSelector(state => state.pizzas)
     const dispatch = useDispatch();
 
 	useEffect(() => {
         if(burgers.length === 0) {
 			dispatch(getBurger())
-        }
-		if(salads.length === 0) {
 			dispatch(getSalad())
+			dispatch(getDesserts())
+			dispatch(getSouses())
+			dispatch(getPizzas())
         }
     }, []);
 	return (

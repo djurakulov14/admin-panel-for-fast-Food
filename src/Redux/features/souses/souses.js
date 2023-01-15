@@ -5,7 +5,7 @@ import { getSouses } from './sousesThunk';
 
 const initialState = {
     souses: [], 
-    statusOfSouses: ''
+    statusOfSouse: "idle"
 }
 
 export const sousesSlice = createSlice({

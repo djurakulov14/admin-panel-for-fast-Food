@@ -5,7 +5,7 @@ import { getPizzas } from "./pizzaThunk";
 
 const initialState = {
     pizzas: [],
-    statusofPizzas:"idle"
+    statusOfPizza:"idle"
 }
 
 
