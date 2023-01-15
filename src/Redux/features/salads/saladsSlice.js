@@ -21,6 +21,7 @@ export const saladsSlice = createSlice({
             })
             .addCase(getSalad.fulfilled, (state, action) => {
                 state.status = "got your salads"
+                state.salads = action.payload
             })
             .addCase(getSalad.rejected, (state, action) => {
                 state.status = "lost your salads"

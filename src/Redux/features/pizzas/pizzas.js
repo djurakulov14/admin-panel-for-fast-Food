@@ -20,7 +20,7 @@ export const pizzassSlice = createSlice({
            })
            .addCase(getPizzas.fulfilled, (state, action) => {
                state.status = "already got your pizzas"
-               state.burgers = action.payload
+               state.pizzas = action.payload
            })
            .addCase(getPizzas.rejected, (state, action) => {
                state.status = "budesh golodaty"
