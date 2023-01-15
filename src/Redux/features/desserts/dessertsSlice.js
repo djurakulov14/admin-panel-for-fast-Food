@@ -19,8 +19,8 @@ export const dessertsSlice = createSlice({
           })
           .addCase(getDesserts.fulfilled, (state, action) => {
               state.status = "already got your desserts"
-              state.burgers = action.payload
-          })
+              state.desserts = action.payload
+            })
           .addCase(getDesserts.rejected, (state, action) => {
               state.status = "budesh golodaty"
           });

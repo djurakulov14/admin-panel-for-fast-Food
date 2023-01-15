@@ -28,6 +28,11 @@ function App() {
 			dispatch(getSouses())
 			dispatch(getPizzas())
         }
+		console.log(burgers);
+		console.log(salads);
+		console.log(desserts);
+		console.log(souses);
+		console.log(pizzas);
     }, []);
 	return (
 		<Routes>
