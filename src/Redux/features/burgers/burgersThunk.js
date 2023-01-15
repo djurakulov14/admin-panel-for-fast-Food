@@ -11,3 +11,17 @@ export const getBurger = createAsyncThunk(
         return data
     }
 )
+
+
+export const removeBurger = createAsyncThunk(
+    'burgers/removeBurger',
+
+    async (id) => {
+        const res = await fetch(baseUrl + 'burgers/' + id, {
+            method: "DELETE"
+        })
+        const data = res.json()
+
+        return data
+    }
+)

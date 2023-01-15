@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.scss";
-import { getBurger } from "./Redux/features/burgers/burgersThunk";
+import { getBurger,removeBurger } from "./Redux/features/burgers/burgersThunk";
 import { useDispatch, useSelector } from "react-redux";
 import { getSalad } from "./Redux/features/salads/saladsThunk";
 import Layout from "./Layout/Layout";
@@ -28,18 +28,20 @@ function App() {
 			dispatch(getSouses())
 			dispatch(getPizzas())
         }
-		console.log(burgers);
-		console.log(salads);
-		console.log(desserts);
-		console.log(souses);
-		console.log(pizzas);
     }, []);
+
+
+	function remove( ) {
+		// dispatch(removeBurger(1))
+		console.log(burgers);
+	}
 	return (
-		<Routes>
-            <Route path="/" element={<Layout/>}>
-                <Route index element={<Home/>}/>
-            </Route>
-        </Routes>
+		<button onClick={remove} >delete</button>
+		// <Routes>
+        //     <Route path="/" element={<Layout/>}>
+        //         <Route index element={<Home/>}/>
+        //     </Route>
+        // </Routes>
 	)
 }
 
