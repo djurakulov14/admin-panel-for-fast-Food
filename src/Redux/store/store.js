@@ -9,7 +9,7 @@ import {
 import burgers from "../features/burgers/burgersSlice";
 import desserts from "../features/desserts/dessertsSlice";
 import souses from "../features/souses/souses";
-import salads from "../features/salads/salads";
+import salads from "../features/salads/saladsSlice";
 import pizzas from "../features/pizzas/pizzas";
 import liquids from "../features/liquid/liquidSlice";
 import cartReducer from "../features/cart/cartSlice";

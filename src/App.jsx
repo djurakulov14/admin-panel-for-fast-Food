@@ -1,24 +1,26 @@
 import React, { useEffect } from "react";
 import "./App.scss";
-import { Route, Routes } from "react-router-dom";
-import burgers from "./Redux/features/burgers/burgersSlice";
 import { getBurger } from "./Redux/features/burgers/burgersThunk";
 import { useDispatch, useSelector } from "react-redux";
+import { getSalad } from "./Redux/features/salads/saladsThunk";
 import Layout from "./Layout/Layout";
 import Home from "./Pages/Home";
+import { Route, Routes } from "react-router-dom";
 
 
 function App() {
 
     const {burgers, status} = useSelector(state => state.burgers)
+	const {salads} = useSelector(state => state.salads)
     const dispatch = useDispatch();
 
 	useEffect(() => {
-
         if(burgers.length === 0) {
-            dispatch(getBurger())
+			dispatch(getBurger())
         }
-	console.log(burgers, status);
+		if(salads.length === 0) {
+			dispatch(getSalad())
+        }
     }, []);
 	return (
 		<Routes>
