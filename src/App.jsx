@@ -10,8 +10,11 @@ import { Route, Routes } from "react-router-dom";
 
 function App() {
 
-    const {burgers, status} = useSelector(state => state.burgers)
-	const {salads} = useSelector(state => state.salads)
+    const {burgers, statusOfBurger} = useSelector(state => state.burgers)
+	const {salads, statusOfSalad} = useSelector(state => state.salads)
+	const {desserts, statusOfDessert} = useSelector(state => state.desserts)
+	const {sauses, statusOfSouse} = useSelector(state => state.sauses)
+	const {pizzas, statusOfPizza} = useSelector(state => state.pizzas)
     const dispatch = useDispatch();
 
 	useEffect(() => {
