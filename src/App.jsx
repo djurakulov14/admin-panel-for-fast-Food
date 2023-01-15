@@ -3,6 +3,9 @@ import "./App.scss";
 import { getBurger } from "./Redux/features/burgers/burgersThunk";
 import { useDispatch, useSelector } from "react-redux";
 import { getSalad } from "./Redux/features/salads/saladsThunk";
+import Layout from "./Layout/Layout";
+import Home from "./Pages/Home";
+import { Route, Routes } from "react-router-dom";
 
 
 function App() {
@@ -14,15 +17,17 @@ function App() {
 	useEffect(() => {
         if(burgers.length === 0) {
 			dispatch(getBurger())
-			console.log(burgers, status);
         }
 		if(salads.length === 0) {
 			dispatch(getSalad())
         }
-		console.log(salads);
     }, []);
 	return (
-		<h1>hello</h1>
+		<Routes>
+            <Route path="/" element={<Layout/>}>
+                <Route index element={<Home/>}/>
+            </Route>
+        </Routes>
 	)
 }
 

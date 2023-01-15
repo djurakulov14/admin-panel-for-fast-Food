@@ -5,7 +5,7 @@ import { getSalad } from "./saladsThunk";
 
 
 const initialState = {
-    status: "idle",
+    statusOfSalads: "idle",
     salads: []
 }
 

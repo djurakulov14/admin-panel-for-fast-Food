@@ -4,7 +4,7 @@ import {
 import { getBurger } from "./burgersThunk";
 
 const initialState = {
-    status: "idle",
+    statusOfBurger: "idle",
     burgers: []
 }
 
