@@ -11,3 +11,15 @@ export const getSalad = createAsyncThunk(
         return data
     }
 )
+export const removeSalad = createAsyncThunk(
+    'salads/removeSalads',
+
+    async (id) => {
+        const res = await fetch(baseUrl + 'salads/' + id, {
+            method: "DELETE"
+        })
+        const data = res.json()
+
+        return data
+    }
+)

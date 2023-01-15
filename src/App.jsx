@@ -7,6 +7,7 @@ import Burgers from "./Pages/Burgers";
 import Desserts from "./Pages/Desserts";
 import Pizzas from "./Pages/Pizzas";
 import Salads from "./Pages/Salads";
+import Liquids from "./Pages/Liquids";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
                 <Route  path="/desserts" element={<Desserts />}/>
                 <Route  path="/pizzas" element={<Pizzas />}/>
                 <Route  path="/salads" element={<Salads />}/>
+                <Route  path="/liquids" element={<Liquids />}/>
             </Route>
         </Routes>
 	)

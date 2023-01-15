@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDesserts } from '../Redux/features/desserts/dessertThunk';
+import { getDesserts, removeDesserts } from '../Redux/features/desserts/dessertThunk';
 import Cards from '../components/Cards';
 const Desserts = () => {
     
@@ -17,7 +17,7 @@ const Desserts = () => {
         <div>
             <section className='grid grid-cols-3 gap-5'> 
               {
-               desserts.map(i => <Cards item={i} key={i.id} />)
+               desserts.map(i => <Cards item={i} key={i.id} remove={removeDesserts}  />)
               }
            </section>
         </div>

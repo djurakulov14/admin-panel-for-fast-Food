@@ -1,7 +1,7 @@
 import {
    createSlice
 } from "@reduxjs/toolkit";
-import { getDesserts } from "./dessertThunk";
+import { getDesserts, removeDesserts } from "./dessertThunk";
 
 const initialState = {
    statusOfDessert: "idle",
@@ -23,6 +23,17 @@ export const dessertsSlice = createSlice({
           })
           .addCase(getDesserts.rejected, (state, action) => {
               state.status = "budesh golodaty"
+          });
+      builder
+          .addCase(removeDesserts.pending, (state, action) => {
+              state.status = "deleting your desserts"
+          })
+          .addCase(removeDesserts.fulfilled, (state, action) => {
+              state.status = "already deleted your desserts"
+              state.desserts =  state.desserts.filter((item) => item.id !== action.payload)
+          })
+          .addCase(removeDesserts.rejected, (state, action) => {
+              state.status = "dessert didn't delete"
           });
   }
 })

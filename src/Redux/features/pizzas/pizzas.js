@@ -1,7 +1,7 @@
 import {
     createSlice
 } from "@reduxjs/toolkit";
-import { getPizzas } from "./pizzaThunk";
+import { getPizzas, removePizzas } from "./pizzaThunk";
 
 const initialState = {
     pizzas: [],
@@ -23,6 +23,17 @@ export const pizzassSlice = createSlice({
                state.pizzas = action.payload
            })
            .addCase(getPizzas.rejected, (state, action) => {
+               state.status = "budesh golodaty"
+           });
+       builder
+           .addCase(removePizzas.pending, (state, action) => {
+               state.status = "getting your pizzas"
+           })
+           .addCase(removePizzas.fulfilled, (state, action) => {
+               state.status = "already got your pizzas"
+               state.pizzas = state.pizzas.filter((item) => item.id !== action.payload)
+           })
+           .addCase(removePizzas.rejected, (state, action) => {
                state.status = "budesh golodaty"
            });
    }
