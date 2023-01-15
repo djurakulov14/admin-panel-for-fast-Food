@@ -4,6 +4,8 @@ import { Route, Routes } from "react-router-dom";
 import burgers from "./Redux/features/burgers/burgersSlice";
 import { getBurger } from "./Redux/features/burgers/burgersThunk";
 import { useDispatch, useSelector } from "react-redux";
+import Layout from "./Layout/Layout";
+import Home from "./Pages/Home";
 
 
 function App() {
@@ -19,7 +21,11 @@ function App() {
 	console.log(burgers, status);
     }, []);
 	return (
-		<h1>hello</h1>
+		<Routes>
+            <Route path="/" element={<Layout/>}>
+                <Route index element={<Home/>}/>
+            </Route>
+        </Routes>
 	)
 }
 
