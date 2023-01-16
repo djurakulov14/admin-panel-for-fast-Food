@@ -35,3 +35,14 @@ export const editDesserts = createAsyncThunk(
 
     }
 )
+export const postDesserts = createAsyncThunk(
+    'desserts/postDesserts',
+
+    async (item) => {
+
+        const res = axios.post(baseUrl + "desserts", item)
+
+        return res
+
+    }
+)

@@ -1,7 +1,8 @@
 import {
     createSlice
 } from "@reduxjs/toolkit";
-import { editPizzas, getPizzas, removePizzas } from "./pizzaThunk";
+import { MdPhonelinkSetup } from "react-icons/md";
+import { editPizzas, getPizzas, postPizzas, removePizzas } from "./pizzaThunk";
 
 const initialState = {
     pizzas: [],
@@ -38,14 +39,24 @@ export const pizzassSlice = createSlice({
            });
         builder
             .addCase(editPizzas.pending, (state, action) => {
-                state.status = "editing your liquids"
+                state.status = "editing your pizzas"
             })
             .addCase(editPizzas.fulfilled, (state, action) => {
-                state.status = "edited your liquids"
+                state.status = "edited your pizzas"
             })
             .addCase(editPizzas.rejected, (state, action) => {
                 state.status = "error"
             })
+        builder
+            .addCase(postPizzas.pending, (state, action) => {
+                state.status = "editing your pizzas"
+            })
+            .addCase(postPizzas.fulfilled, (state, action) => {
+                state.status = "edited your pizzas"
+            })
+            .addCase(postPizzas.rejected, (state, action) => {
+                state.status = "error"
+            }) 
    }
 })
 

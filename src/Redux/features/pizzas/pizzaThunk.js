@@ -35,3 +35,14 @@ export const editPizzas = createAsyncThunk(
 
     }
 )
+export const postPizzas = createAsyncThunk(
+    'pizzas/postPizzas',
+
+    async (item) => {
+
+        const res = axios.post(baseUrl + "pizzas", item)
+
+        return res
+
+    }
+)

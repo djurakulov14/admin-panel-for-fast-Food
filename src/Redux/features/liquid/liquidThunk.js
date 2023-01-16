@@ -35,3 +35,14 @@ export const editLiquids = createAsyncThunk(
 
     }
 )
+export const postLiquids = createAsyncThunk(
+    'liquids/postLiquids',
+
+    async (item) => {
+
+        const res = axios.post(baseUrl + "liquids", item)
+
+        return res
+
+    }
+)

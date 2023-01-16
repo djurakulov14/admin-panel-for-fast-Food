@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { editBurger } from '../Redux/features/burgers/burgersThunk';
+import { postBurger } from '../Redux/features/burgers/burgersThunk';
 import { MdDeleteOutline } from 'react-icons/md'
 import { AiOutlineEdit } from 'react-icons/ai'
 
