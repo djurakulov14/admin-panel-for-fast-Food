@@ -11,3 +11,16 @@ export const getLiquids = createAsyncThunk(
         return data
     }
 )
+
+export const removeLiquids = createAsyncThunk(
+    'liquids/removeLiquids',
+
+    async (id) => {
+        const res = await fetch(baseUrl + 'liquids/' + id, {
+            method: "DELETE"
+        })
+        const data = res.json()
+
+        return data
+    }
+)

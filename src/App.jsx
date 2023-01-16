@@ -1,47 +1,25 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./App.scss";
-import { getBurger,removeBurger } from "./Redux/features/burgers/burgersThunk";
-import { useDispatch, useSelector } from "react-redux";
-import { getSalad } from "./Redux/features/salads/saladsThunk";
 import Layout from "./Layout/Layout";
-import Home from "./Pages/Home";
 import { Route, Routes } from "react-router-dom";
-import { getDesserts } from "./Redux/features/desserts/dessertThunk";
-import { getSouses } from "./Redux/features/souses/sousesThunk";
-import { getPizzas } from "./Redux/features/pizzas/pizzaThunk";
-
+import Souses from './Pages/Souses'
+import Burgers from "./Pages/Burgers";
+import Desserts from "./Pages/Desserts";
+import Pizzas from "./Pages/Pizzas";
+import Salads from "./Pages/Salads";
 
 function App() {
 
-    const {burgers, statusOfBurger} = useSelector(state => state.burgers)
-	const {salads, statusOfSalad} = useSelector(state => state.salads)
-	const {desserts, statusOfDessert} = useSelector(state => state.desserts)
-	const {souses, statusOfSouse} = useSelector(state => state.souses)
-	const {pizzas, statusOfPizza} = useSelector(state => state.pizzas)
-    const dispatch = useDispatch();
-
-	useEffect(() => {
-        if(burgers.length === 0) {
-			dispatch(getBurger())
-			dispatch(getSalad())
-			dispatch(getDesserts())
-			dispatch(getSouses())
-			dispatch(getPizzas())
-        }
-    }, []);
-
-
-	function remove( ) {
-		// dispatch(removeBurger(1))
-		console.log(burgers);
-	}
 	return (
-		<button onClick={remove} >delete</button>
-		// <Routes>
-        //     <Route path="/" element={<Layout/>}>
-        //         <Route index element={<Home/>}/>
-        //     </Route>
-        // </Routes>
+		<Routes>
+            <Route path="/" element={<Layout/>}>
+                <Route  path="/souses" element={<Souses />}/>
+                <Route  path="/burgers" element={<Burgers />}/>
+                <Route  path="/desserts" element={<Desserts />}/>
+                <Route  path="/pizzas" element={<Pizzas />}/>
+                <Route  path="/salads" element={<Salads />}/>
+            </Route>
+        </Routes>
 	)
 }
 
