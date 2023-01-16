@@ -5,7 +5,7 @@ import Sidebar from "../components/Sidebar";
 
 function Layout() {
   return (
-    <div className="w-full pt-24 bg-[#F6AD31] min-h-screen">
+    <div className="w-full pt-36 bg-[#F6AD31] min-h-screen">
       <Sidebar/>
       <Header/>
       <div className="ml-[22%] mr-[2%]">
