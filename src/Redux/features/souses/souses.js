@@ -1,7 +1,7 @@
 import {
     createSlice
 } from '@reduxjs/toolkit'
-import { editSouses, getSouses, removeSouses } from './sousesThunk';
+import { editSouses, getSouses, postSouses, removeSouses } from './sousesThunk';
 
 const initialState = {
     souses: [], 
@@ -43,6 +43,16 @@ export const sousesSlice = createSlice({
                 state.status = "edited your souses"
             })
             .addCase(editSouses.rejected, (state, action) => {
+                state.status = "error"
+            })
+        builder
+            .addCase(postSouses.pending, (state, action) => {
+                state.status = "editing your souses"
+            })
+            .addCase(postSouses.fulfilled, (state, action) => {
+                state.status = "edited your souses"
+            })
+            .addCase(postSouses.rejected, (state, action) => {
                 state.status = "error"
             })   
         }

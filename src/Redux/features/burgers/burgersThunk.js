@@ -33,12 +33,24 @@ export const editBurger = createAsyncThunk(
 
         return res
 
-        // const res = await fetch(baseUrl + 'burgers/' + item.id, {
-        //     method: "PATCH",
-        //     body: JSON.stringify(item)
-        // })
-        // const data = res.json()
+    }
+)
+    // const res = await fetch(baseUrl + 'burgers/' + item.id, {
+    //     method: "PATCH",
+    //     body: JSON.stringify(item)
+    // })
+    // const data = res.json()
 
-        // return data
+    // return data
+
+export const postBurger = createAsyncThunk(
+    'burgers/postBurger',
+
+    async (item) => {
+
+        const res = axios.post(baseUrl + "burgers", item)
+
+        return res
+
     }
 )
