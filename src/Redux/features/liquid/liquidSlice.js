@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getLiquids, removeLiquids } from "./liquidThunk";
+import { editLiquids, getLiquids, removeLiquids } from "./liquidThunk";
 
 const initialState ={
     liquids: [],
@@ -33,6 +33,16 @@ export const liquidsSlice = createSlice({
            .addCase(removeLiquids.rejected, (state, action) => {
                state.status = "budesh golodaty"
            });
+        builder
+            .addCase(editLiquids.pending, (state, action) => {
+                state.status = "editing your liquids"
+            })
+            .addCase(editLiquids.fulfilled, (state, action) => {
+                state.status = "edited your liquids"
+            })
+            .addCase(editLiquids.rejected, (state, action) => {
+                state.status = "error"
+            })
    }
 })
 

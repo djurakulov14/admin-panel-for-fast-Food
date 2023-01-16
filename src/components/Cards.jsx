@@ -1,7 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { editBurger } from '../Redux/features/burgers/burgersThunk';
 import { MdDeleteOutline } from 'react-icons/md'
 import { AiOutlineEdit } from 'react-icons/ai'
+
+
 const Cards = ({item, remove}) => {
     const dispatch = useDispatch();
     return (
@@ -16,6 +19,7 @@ const Cards = ({item, remove}) => {
         </a>
         <p className="mb-3 font-normal text-gray-700">{item.body}</p>
         <p className="mb-3 font-normal text-gray-700">{item.price}</p>
+
         <div className='flex gap-1'>
         <button className="inline-flex items-center gap-2 px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
         onClick={() => dispatch(remove(item.id))}>
