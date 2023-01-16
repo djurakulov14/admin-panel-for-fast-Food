@@ -2,33 +2,39 @@ import React from "react";
 import SidebarItem from "./childs/SidebarItem";
 import { v4 as uuidv4 } from 'uuid';
 import { NavLink } from "react-router-dom";
+import burgerImg from '../resources/hamburger.svg'
 function Sidebar() {
   const arr = [
     {
       id: uuidv4(),
-      name: 'Бургеры'
+      name: 'Бургеры',
+      img: burgerImg
     },
     {
       id: uuidv4(),
-      name: 'Салаты'
+      name: 'Салаты',
+      img: '/img/salad.png'
     },
     {
       id: uuidv4(),
-      name: 'Напитки'
+      name: 'Напитки',
+      img: '/img/liquid_icon.svg'
     },
     {
       id: uuidv4(),
-      name: 'Соусы'
+      name: 'Соусы',
+      img: '/img/souses.png'
     },
     {
       id: uuidv4(),
-      name: 'Дессерты'
+      name: 'Дессерты',
+      img: '/img/dessert.png'
     },
     {
       id: uuidv4(),
-      name: 'Пицца'
+      name: 'Пицца',
+      img: '/img/pizza.png'
     }
-    //  'Салаты', 'Пицца','Напитки','Соусы', 'Дессерты'
     ]
   return (
     <div className="w-1/5 fixed top-0 left-0 h-screen bg-[#F6AD31] p-5 border-black border-r-2">
