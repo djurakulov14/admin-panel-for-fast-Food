@@ -1,7 +1,7 @@
 import {
     createSlice
 } from "@reduxjs/toolkit";
-import { getBurger, removeBurger } from "./burgersThunk";
+import { editBurger, getBurger, removeBurger } from "./burgersThunk";
 
 const initialState = {
     statusOfBurger: "idle",
@@ -33,6 +33,16 @@ export const burgersSlice = createSlice({
                 state.burgers = state.burgers.filter((item) => item._id !== action.payload);
             })
             .addCase(removeBurger.rejected, (state, action) => {
+                state.status = "error"
+            })
+        builder
+            .addCase(editBurger.pending, (state, action) => {
+                state.status = "editing your burgers"
+            })
+            .addCase(editBurger.fulfilled, (state, action) => {
+                state.status = "edited your burger"
+            })
+            .addCase(editBurger.rejected, (state, action) => {
                 state.status = "error"
             })
     }

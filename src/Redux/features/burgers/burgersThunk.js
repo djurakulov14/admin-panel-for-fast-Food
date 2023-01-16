@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from 'axios'
 const baseUrl = "http://localhost:7777/"
 
 export const getBurger = createAsyncThunk(
@@ -11,8 +12,6 @@ export const getBurger = createAsyncThunk(
         return data
     }
 )
-
-
 export const removeBurger = createAsyncThunk(
     'burgers/removeBurger',
 
@@ -23,5 +22,23 @@ export const removeBurger = createAsyncThunk(
         const data = res.json()
 
         return data
+    }
+)
+export const editBurger = createAsyncThunk(
+    'burgers/editBurger',
+
+    async (item) => {
+
+        const res = axios.patch(baseUrl + "burgers/" + item.id, item)
+
+        return res
+
+        // const res = await fetch(baseUrl + 'burgers/' + item.id, {
+        //     method: "PATCH",
+        //     body: JSON.stringify(item)
+        // })
+        // const data = res.json()
+
+        // return data
     }
 )
