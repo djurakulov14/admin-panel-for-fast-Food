@@ -14,8 +14,8 @@ function App() {
 	return (
 		<Routes>
             <Route path="/" element={<Layout/>}>
+                <Route  index element={<Burgers />}/>
                 <Route  path="/souses" element={<Souses />}/>
-                <Route  path="/burgers" element={<Burgers />}/>
                 <Route  path="/desserts" element={<Desserts />}/>
                 <Route  path="/pizzas" element={<Pizzas />}/>
                 <Route  path="/salads" element={<Salads />}/>

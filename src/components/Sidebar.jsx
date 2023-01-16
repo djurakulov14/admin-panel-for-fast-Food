@@ -8,32 +8,38 @@ function Sidebar() {
     {
       id: uuidv4(),
       name: 'Бургеры',
-      img: burgerImg
+      img: burgerImg,
+      pathName: "/"
     },
     {
       id: uuidv4(),
       name: 'Салаты',
-      img: '/img/salad.png'
+      img: '/img/salad.png',
+      pathName: "/salads"
     },
     {
       id: uuidv4(),
       name: 'Напитки',
-      img: '/img/liquid_icon.svg'
+      img: '/img/liquid_icon.svg',
+      pathName: "/liquids"
     },
     {
       id: uuidv4(),
       name: 'Соусы',
-      img: '/img/souses.png'
+      img: '/img/souses.png',
+      pathName: "/souses"
     },
     {
       id: uuidv4(),
       name: 'Дессерты',
-      img: '/img/dessert.png'
+      img: '/img/dessert.png',
+      pathName: "/desserts"
     },
     {
       id: uuidv4(),
       name: 'Пицца',
-      img: '/img/pizza.png'
+      img: '/img/pizza.png',
+      pathName: "/pizzas"
     }
     ]
   return (
@@ -48,7 +54,7 @@ function Sidebar() {
         <div className="w-full">
           {
             arr.map((i, index) => (
-              index === 0 ? <NavLink to='/burgers' className='link'>
+              index === 0 ? <NavLink to='/' className='link'>
                 <SidebarItem key={i.id} i={i}/>
                 </NavLink> : null
             ))
