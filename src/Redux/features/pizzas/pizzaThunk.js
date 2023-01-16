@@ -9,7 +9,7 @@ export const getPizzas = createAsyncThunk(
         const res = await fetch(baseUrl + 'pizzas')
         const data = res.json()
 
-        return data
+        return {data, res}
     }
 )
 export const removePizzas = createAsyncThunk(
@@ -19,9 +19,10 @@ export const removePizzas = createAsyncThunk(
         const res = await fetch(baseUrl + 'pizzas/' + id, {
             method: "DELETE"
         })
+        
         const data = res.json()
 
-        return data
+        return {data, res}
     }
 )
 export const editPizzas = createAsyncThunk(
@@ -31,7 +32,9 @@ export const editPizzas = createAsyncThunk(
 
         const res = axios.patch(baseUrl + "pizzas/" + item.id, item)
 
-        return res
+        const data = await res.data
+
+        return {data, res}
 
     }
 )
@@ -42,7 +45,9 @@ export const postPizzas = createAsyncThunk(
 
         const res = axios.post(baseUrl + "pizzas", item)
 
-        return res
+        const data = await res.data
+
+        return {data, res}
 
     }
 )

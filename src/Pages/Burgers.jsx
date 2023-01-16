@@ -9,6 +9,7 @@ const Burgers = () => {
     dispatch(getBurger());
     console.log(burgers);
   }, []);
+
   return (
     <div>
       <section className="grid grid-cols-3 gap-5">
