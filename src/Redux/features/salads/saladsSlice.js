@@ -1,7 +1,7 @@
 import {
     createSlice
 } from "@reduxjs/toolkit";
-import { getSalad, removeSalad } from "./saladsThunk";
+import { editSalad, getSalad, postSalads, removeSalad } from "./saladsThunk";
 
 
 const initialState = {
@@ -37,6 +37,26 @@ export const saladsSlice = createSlice({
             .addCase(removeSalad.rejected, (state, action) => {
                 state.status = "lost your salads"
             })
+        builder
+            .addCase(editSalad.pending, (state, action) => {
+                state.status = "editing your salads"
+            })
+            .addCase(editSalad.fulfilled, (state, action) => {
+                state.status = "edited your salads"
+            })
+            .addCase(editSalad.rejected, (state, action) => {
+                state.status = "error"
+            })
+        builder
+            .addCase(postSalads.pending, (state, action) => {
+                state.status = "editing your salads"
+            })
+            .addCase(postSalads.fulfilled, (state, action) => {
+                state.status = "edited your salads"
+            })
+            .addCase(postSalads.rejected, (state, action) => {
+                state.status = "error"
+            }) 
     }
 })
 
