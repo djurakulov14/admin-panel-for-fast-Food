@@ -54,7 +54,7 @@ export const burgersSlice = createSlice({
             })
             .addCase(postBurger.rejected, (state, action) => {
                 state.status = "error"
-            })    
+            })
     }
 })
 
