@@ -6,22 +6,18 @@ export const getLiquids = createAsyncThunk(
     'liquids/getLiquids',
 
     async () => {
-        const res = await fetch(baseUrl + 'liquids')
-        const data = res.json()
+        const res = await axios.get(baseUrl + 'liquids')
 
-        return data
+        return res
     }
 )
 export const removeLiquids = createAsyncThunk(
     'liquids/removeLiquids',
 
     async (id) => {
-        const res = await fetch(baseUrl + 'liquids/' + id, {
-            method: "DELETE"
-        })
-        const data = res.json()
+        const res = await axios.delete(baseUrl + 'liquids/' + id)
 
-        return data
+        return res
     }
 )
 export const editLiquids = createAsyncThunk(
