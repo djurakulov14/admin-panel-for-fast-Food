@@ -21,7 +21,8 @@ export const pizzassSlice = createSlice({
            })
            .addCase(getPizzas.fulfilled, (state, action) => {
                state.status = "already got your pizzas"
-               state.pizzas = action.payload
+               console.log(action.payload);
+               state.pizzas = []
            })
            .addCase(getPizzas.rejected, (state, action) => {
                state.status = "budesh golodaty"

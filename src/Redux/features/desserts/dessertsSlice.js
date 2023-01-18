@@ -19,7 +19,8 @@ export const dessertsSlice = createSlice({
             })
             .addCase(getDesserts.fulfilled, (state, action) => {
                 state.status = "already got your desserts"
-                state.desserts = action.payload
+                console.log(action.payload.data);
+                state.desserts = action.payload.data
             })
             .addCase(getDesserts.rejected, (state, action) => {
                 state.status = "budesh golodaty"
@@ -30,7 +31,7 @@ export const dessertsSlice = createSlice({
             })
             .addCase(removeDesserts.fulfilled, (state, action) => {
                 state.status = "already deleted your desserts"
-                state.desserts =  state.desserts.filter((item) => item.id !== action.payload)
+                state.desserts =  state.desserts.filter((item) => item.id !== action.payload.data)
             })
             .addCase(removeDesserts.rejected, (state, action) => {
                 state.status = "dessert didn't delete"
