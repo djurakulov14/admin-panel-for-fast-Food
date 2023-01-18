@@ -1,59 +1,58 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { editLiquids, getLiquids, postLiquids, removeLiquids } from "./liquidThunk";
+import { getLiquid, editeLiquid, postLiquid, removeLiquid } from "./liquidThunk";
 
-const initialState ={
-    liquids: [],
-    statusOfLiquid: "idle"
+const initialState = {
+    statusOfLiquid:"idle",
+    liquids:[]
 }
 
-export const liquidsSlice = createSlice({
-    name: "liquids",
+export const liquidSlice = createSlice({
+    name: "liquid",
     initialState,
     reducers:{},
-    extraReducers(builder) {
-       builder
-           .addCase(getLiquids.pending, (state, action) => {
-               state.status = "getting your liquids"
-           })
-           .addCase(getLiquids.fulfilled, (state, action) => {
-               state.status = "already got your liquids"
-               state.liquids = action.payload
-           })
-           .addCase(getLiquids.rejected, (state, action) => {
-               state.status = "budesh golodaty"
-           });
-       builder
-           .addCase(removeLiquids.pending, (state, action) => {
-               state.status = "getting your liquids"
-           })
-           .addCase(removeLiquids.fulfilled, (state, action) => {
-               state.status = "already got your liquids"
-               state.liquids = state.liquids.filter((item) => item.id !== action.payload)
-           })
-           .addCase(removeLiquids.rejected, (state, action) => {
-               state.status = "budesh golodaty"
-           });
+    extraReducers(builder){
         builder
-            .addCase(editLiquids.pending, (state, action) => {
+            .addCase(getLiquid.pending, (state, action)=>{
+                state.status = "getting your liquids"
+            })
+            .addCase(getLiquid.fulfilled, (state, action)=>{
+                state.status = "already got your liquids"
+                state.burgers = action.payload
+            })
+            .addCase(getLiquid.rejected, (state, action)=>{
+                state.status = "budesh golodat"
+            })
+        builder
+            .addCase(editeLiquid.pending, (state, action)=>{
                 state.status = "editing your liquids"
             })
-            .addCase(editLiquids.fulfilled, (state, action) => {
+            .addCase(editeLiquid.fulfilled, (state, action)=>{
                 state.status = "edited your liquids"
             })
-            .addCase(editLiquids.rejected, (state, action) => {
+            .addCase(editeLiquid.rejected, (state, action)=>{
                 state.status = "error"
             })
         builder
-            .addCase(postLiquids.pending, (state, action) => {
-                state.status = "editing your liquids"
+            .addCase(postLiquid.pending, (state, action)=>{
+                state.status = "posting your liquids"
             })
-            .addCase(postLiquids.fulfilled, (state, action) => {
-                state.status = "edited your liquids"
+            .addCase(postLiquid.fulfilled, (state, action)=>{
+                state.status = "posted your liquids"
             })
-            .addCase(postLiquids.rejected, (state, action) => {
+            .addCase(postLiquid.rejected, (state, action)=>{
                 state.status = "error"
-            })     
-   }
+            })
+        builder
+            .addCase(removeLiquid.pending, (state, action)=>{
+                state.status = "removing your liquids"
+            })
+            .addCase(removeLiquid.fulfilled, (state, action)=>{
+                state.status = "removed your liquids"
+            })
+            .addCase(removeLiquid.rejected, (state, action)=>{
+                state.status = "error"
+            })
+    }
 })
 
-export default liquidsSlice.reducer
+export default liquidSlice.reducer

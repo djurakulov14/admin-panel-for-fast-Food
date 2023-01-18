@@ -1,48 +1,42 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from 'axios'
+import axios from "axios"
 const baseUrl = "http://localhost:7777/"
 
-export const getLiquids = createAsyncThunk(
-    'liquids/getLiquids',
+export const getLiquid = createAsyncThunk(
+    "liquid/getLiquid",
 
-    async () => {
-        const res = await fetch(baseUrl + 'liquids')
-        const data = res.json()
-
-        return data
-    }
-)
-export const removeLiquids = createAsyncThunk(
-    'liquids/removeLiquids',
-
-    async (id) => {
-        const res = await fetch(baseUrl + 'liquids/' + id, {
-            method: "DELETE"
-        })
-        const data = res.json()
-
-        return data
-    }
-)
-export const editLiquids = createAsyncThunk(
-    'liquids/editLiquids',
-
-    async (item) => {
-
-        const res = axios.patch(baseUrl + "liquids/" + item.id, item)
+    async () =>{
+        const res = await axios.get(baseUrl + "liquids")
 
         return res
-
     }
 )
-export const postLiquids = createAsyncThunk(
-    'liquids/postLiquids',
 
-    async (item) => {
+export const removeLiquid = createAsyncThunk(
+    "liquid/removeLiquid",
 
-        const res = axios.post(baseUrl + "liquids", item)
+    async (id) =>{
+        const res = await axios.delete(baseUrl +"liquids/" + id)
 
         return res
+    }
+)
+export const editeLiquid = createAsyncThunk(
+    "liquid/editLiquid",
 
+    async (item) =>{
+        const res = await axios.patch(baseUrl + "liquids/" + item.id, item)
+
+        return res
+    }
+)
+
+export const postLiquid = createAsyncThunk(
+    "liquid/postLiquid",
+
+    async(item)=>{
+        const res = await axios.post(baseUrl + "liquids", item)
+
+        return res
     }
 )
