@@ -11,6 +11,8 @@ const Liquids = () => {
       dispatch(getLiquids())
   
     }, []);
+
+    console.log(liquids);
     return (
         <div>
             <section className='grid grid-cols-3 gap-5'> 
