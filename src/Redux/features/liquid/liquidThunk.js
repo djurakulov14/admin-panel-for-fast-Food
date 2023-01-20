@@ -39,6 +39,5 @@ export const postLiquids = createAsyncThunk(
         const res = axios.post(baseUrl + "liquids", item)
 
         return res
-
     }
 )

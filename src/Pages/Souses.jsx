@@ -5,7 +5,7 @@ import { getSalad } from '../Redux/features/salads/saladsThunk';
 import { getSouses } from '../Redux/features/souses/sousesThunk';
 import { removeSouses } from '../Redux/features/souses/sousesThunk';
 
-function Home() {
+function Home({text}) {
 
   const dispatch = useDispatch();
   const {souses, status} = useSelector(state => state.souses)
@@ -15,12 +15,20 @@ function Home() {
 
   }, []);
 
+  const searchArr = souses.filter(item => {
+    const titles = item.title.slice(0, item.title.search(" ")).toLowerCase().trim()+item.title.slice(item.title.search(" ")).toLowerCase().trim();
+    if(titles.includes(text)){
+      return item
+    }
+  })
+
+
 
   return (
     <div>
        <section className='grid grid-cols-3 gap-5'> 
-       {
-        souses.map(i => <Cards item={i} key={i.id} remove={removeSouses} />)
+       { searchArr.length > 0 ? searchArr.map(i => <Cards item={i} key={i.id} remove={removeSouses} />):
+          <h1>Ничего не найденно</h1>
        }
        </section>
     </div>

@@ -1,17 +1,22 @@
-import React, { useState } from 'react'
+import React, {useState } from 'react'
 import { GoSearch } from 'react-icons/go';
+// import searchContext from '../Context/searchContext';
 import MyModal from './MyModal';
 import { PostForm } from './PostForm';
 
-function Header() {
+function Header({setText}) {
   const [visible, setVisible] = useState(false)
+
+  const searchText = (e) =>{
+    setText(e.target.value)
+  }
 
   return (
     <>
       <header className="w-full fixed top-0 left-[21%] pl-[1%]  h-auto bg-[#f6ad3199] flex flex-col gap-5 backdrop-blur">
         <div className='w-[30%] mt-5 bg-white h-10 rounded-full flex items-center pl-3 gap-2 overflow-hidden'>
           <GoSearch size="20"/>
-          <input type="text" className='outline-none text-lg w-full' />
+          <input type="text" onChange={searchText} className='outline-none text-lg w-full' />
         </div>
         <div className='flex w-[75%] items-center justify-between mb-3'>
           <h1 className='text-3xl font-semibold'>Продукты</h1>

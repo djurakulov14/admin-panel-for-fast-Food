@@ -6,11 +6,10 @@ import {
 } from "../Redux/features/desserts/dessertThunk";
 import Cards from "../components/Cards";
 import ProductsView from "../hoc/ProductsView";
-const Desserts = () => {
-
+const Desserts = ({text}) => {
 	return (
 		<div>
-			<ProductsView dataName={"desserts"} fetchThunk={getDesserts} removeItemThunk={removeDesserts}  />
+			<ProductsView dataName={"desserts"} text={text} fetchThunk={getDesserts} removeItemThunk={removeDesserts}  />
 		</div>
 	);
 };
